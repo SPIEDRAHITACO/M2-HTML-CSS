@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!--
+        meta charset:
+        Indicamos que la página usará la codificación de caracteres UTF-8.
+        Esto permite mostrar tildes, ñ y caracteres especiales correctamente.
+    -->
+    <meta charset="UTF-8">
+
+    <!--
+        meta viewport:
+        Necesario para diseño responsive. Hace que el ancho lógico de la página
+        coincida con el ancho del dispositivo (móvil, tablet, pc).
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+        title:
+        Texto que se muestra en la pestaña del navegador.
+    -->
+    <title>Dividir imagen, bloques y animación</title>
+
+    <!--
+        link rel="stylesheet":
+        Aquí conectamos este HTML con el archivo CSS externo.
+        href="style.css" asume que style.css está en la misma carpeta que index.html
+    -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--
+        CONTENEDOR GENERAL DE LA PÁGINA
+        Usamos este div para centrar y limitar el ancho del contenido.
+        Todo el contenido visible estará dentro de .page-container.
+    -->
+    <div class="page-container">
+
+        <!--
+            =====================================================
+            SECCIÓN 1: DIVIDIR IMAGEN Y TEXTO CON FLEXBOX
+            =====================================================
+
+            Objetivo:
+            Tener una sección donde el texto esté a la izquierda
+            y la imagen esté a la derecha, en dos columnas.
+
+            En CSS, al contenedor .hero-section le daremos display: flex;
+            Eso alinea a .hero-text y .hero-image-container uno al lado del otro.
+        -->
+        <section class="hero-section">
+            <!--
+                Columna 1: TEXTO
+                Este div tendrá el texto explicando la idea de dividir imagen y texto.
+                La clase .hero-text se usará en CSS para darle estilos y
+                decirle que ocupe la mitad del ancho usando flex: 1;
+            -->
+            <div class="hero-text">
+                <h1>Dividir imagen de texto</h1>
+                <p>
+                    Aquí estamos dividiendo el espacio en dos partes:
+                    a la izquierda va este texto y a la derecha va una imagen.
+                    Esto se logra usando <strong>Flexbox</strong> en el contenedor padre.
+                </p>
+                <p class="hero-note">
+                    El contenedor de esta sección usa <code>display: flex;</code>,
+                    así el texto y la imagen se colocan en columnas, uno al lado del otro.
+                </p>
+            </div>
+
+            <!--
+                Columna 2: IMAGEN
+                Este div contiene la imagen. En CSS también tendrá flex: 1;
+                para ocupar el resto del espacio horizontal.
+
+                La imagen tiene clase .hero-image para poder ajustar su tamaño,
+                bordes, etc. desde el CSS.
+            -->
+            <div class="hero-image-container">
+                <!--
+                    src:
+                    Usamos una imagen gratuita desde internet (Pexels).
+                    En un proyecto real, puedes usar una imagen local: img/foto.png, etc.
+
+                    alt:
+                    Texto alternativo para accesibilidad (importante buenas prácticas).
+                -->
+                <img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg"
+                    alt="Imagen de ejemplo para dividir imagen y texto" class="hero-image">
+            </div>
+        </section>
+
+        <!--
+            =====================================================
+            SECCIÓN 2: BLOQUES DE 3
+            =====================================================
+
+            Objetivo:
+            Crear una sección con 3 bloques alineados en fila (3 columnas).
+
+            En el CSS, al contenedor .three-blocks-grid le pondremos:
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+
+            Esto significa: 3 columnas de igual tamaño.
+        -->
+        <section class="three-blocks-section">
+            <h2>Bloques de 3</h2>
+            <p>
+                Aquí mostramos <strong>3 bloques</strong> organizados en una fila.
+                Usamos <code>display: grid</code> con 3 columnas iguales.
+            </p>
+
+            <!--
+                Contenedor de los 3 bloques.
+                Este div será un grid de 3 columnas gracias a CSS.
+            -->
+            <div class="three-blocks-grid">
+                <!--
+                    Cada .info-block es un cuadro de contenido.
+                    Usan la misma clase para compartir estilos: fondo, borde, padding, etc.
+                -->
+                <div class="info-block">
+                    <h3>Bloque 1</h3>
+                    <p>
+                        Este es el primer bloque de tres.
+                        Ocupa la primera columna del grid.
+                    </p>
+                </div>
+
+                <div class="info-block">
+                    <h3>Bloque 2</h3>
+                    <p>
+                        Este es el segundo bloque.
+                        El grid lo coloca automáticamente en la segunda columna.
+                    </p>
+                </div>
+
+                <div class="info-block">
+                    <h3>Bloque 3</h3>
+                    <p>
+                        Este es el tercer bloque.
+                        Completa la fila de 3 columnas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!--
+            =====================================================
+            SECCIÓN 3: BLOQUES DE 6
+            =====================================================
+
+            Objetivo:
+            Tener 6 bloques en una cuadrícula.
+
+            En pantallas grandes:
+                - 3 columnas x 2 filas (3*2 = 6).
+            En pantallas más pequeñas:
+                - A través de media queries, podemos hacer que se vean 2 columnas o 1.
+        -->
+        <section class="six-blocks-section">
+            <h2>Bloques de 6</h2>
+            <p>
+                En esta sección mostramos <strong>6 bloques</strong>.
+                También usamos <code>display: grid</code> para organizarlos.
+                El número de columnas puede cambiar según el ancho de pantalla (responsive).
+            </p>
+
+            <!--
+                Contenedor de los 6 bloques.
+                Igual que antes, será un grid definido en CSS.
+            -->
+            <div class="six-blocks-grid">
+                <div class="info-block">
+                    <h3>Bloque 1</h3>
+                    <p>Primer bloque de la cuadrícula de seis.</p>
+                </div>
+
+                <div class="info-block">
+                    <h3>Bloque 2</h3>
+                    <p>Segundo bloque, ocupa otra celda del grid.</p>
+                </div>
+
+                <div class="info-block">
+                    <h3>Bloque 3</h3>
+                    <p>Tercer bloque, completa la primera fila en pantallas grandes.</p>
+                </div>
+
+                <div class="info-block">
+                    <h3>Bloque 4</h3>
+                    <p>Cuarto bloque, comienza la segunda fila.</p>
+                </div>
+
+                <div class="info-block">
+                    <h3>Bloque 5</h3>
+                    <p>Quinto bloque, sigue llenando la cuadrícula.</p>
+                </div>
+
+                <div class="info-block">
+                    <h3>Bloque 6</h3>
+                    <p>Sexto bloque, cierra el grupo de seis.</p>
+                </div>
+            </div>
+        </section>
+
+        <!--
+            =====================================================
+            SECCIÓN 4: ANIMACIÓN
+            =====================================================
+
+            Objetivo:
+            Mostrar un ejemplo de animación de un bloque usando:
+
+            - transform: translateX(...)  → para mover en el eje X.
+            - @keyframes                  → para definir la animación completa.
+            - animation: ...              → para aplicar esa animación al elemento.
+
+            Verás en el CSS la animación "moverBloque".
+        -->
+        <section class="animation-section">
+            <h2>Ejemplo de animación</h2>
+            <p>
+                El bloque de abajo se mueve de izquierda a derecha usando
+                <code>transform: translateX</code> dentro de una animación
+                definida con <code>@keyframes</code>.
+            </p>
+
+            <!--
+                Este div es el elemento animado.
+                La clase .animated-block tendrá la propiedad animation en CSS.
+            -->
+            <div class="animated-block">
+                Animación
+            </div>
+
+            <p class="animation-note">
+                La animación se repite infinitamente y va y viene gracias a la opción
+                <code>alternate</code> en la propiedad <code>animation</code>.
+            </p>
+        </section>
+
+        <!--
+            =====================================================
+            SECCIÓN 5: EXPLICACIÓN DE DEPLOY
+            =====================================================
+
+            Objetivo:
+            Explicar de forma sencilla qué significa "deploy" y cómo hacerlo
+            en GitHub Pages (una de las formas más fáciles para proyectos estáticos).
+        -->
+        <section class="deploy-section">
+            <h2>¿Qué es deploy?</h2>
+            <p>
+                Hacer <strong>deploy</strong> es tomar tu proyecto (por ejemplo este
+                <code>index.html</code> y <code>style.css</code>) y
+                <strong>subirlo a Internet</strong> para que cualquier persona pueda verlo
+                entrando a un enlace (URL).
+            </p>
+            <p>
+                Una forma muy sencilla de hacer deploy es usando <strong>GitHub Pages</strong>.
+                Los pasos básicos son:
+            </p>
+
+            <!--
+                Explicamos paso a paso el deploy en GitHub Pages.
+            -->
+            <ol>
+                <li>
+                    <strong>Crea un repositorio en GitHub</strong> y sube tus archivos
+                    <code>index.html</code> y <code>style.css</code>.
+                </li>
+                <li>
+                    <strong>Ve a Settings</strong> (Configuración) del repositorio.
+                </li>
+                <li>
+                    <strong>Busca la sección "Pages" o "GitHub Pages"</strong>.
+                </li>
+                <li>
+                    <strong>Elige la rama</strong> donde está tu código, normalmente
+                    <code>main</code>, y la carpeta <code>/root</code>.
+                </li>
+                <li>
+                    <strong>Guarda los cambios</strong> y espera unos segundos a que GitHub
+                    genere una URL pública.
+                </li>
+            </ol>
+
+            <p>
+                Esa URL será el enlace que puedes compartir, y allí estará
+                tu página ya <strong>deployada</strong> en Internet.
+            </p>
+        </section>
+
+    </div>
+</body>
+
+</html>

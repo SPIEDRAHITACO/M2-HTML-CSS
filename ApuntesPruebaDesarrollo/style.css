@@ -1,0 +1,350 @@
+/* 
+    RESETEO BÁSICO:
+    Quitamos márgenes y paddings por defecto, y usamos box-sizing: border-box
+    para que el cálculo de los tamaños sea más intuitivo.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+    ESTILOS GENERALES DEL BODY:
+    - Fuente base para todo el texto.
+    - Color de fondo general.
+    - Color de texto por defecto.
+*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+    color: #222;
+}
+
+/*
+    CONTENEDOR PRINCIPAL:
+    - max-width: limita el ancho máximo de la página (para que no se vea muy estirada).
+    - margin: 0 auto; centra el contenedor horizontalmente.
+    - padding: espacio interno respecto a los bordes del navegador.
+*/
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/*
+    TITULOS:
+    - Estilo general para h1, h2, h3.
+*/
+h1,
+h2,
+h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/*
+    PÁRRAFOS:
+    - margin-bottom: separar los párrafos entre sí.
+    - line-height: altura de línea, mejora la lectura.
+*/
+p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* 
+    =====================================================
+    SECCIÓN 1: DIVIDIR IMAGEN Y TEXTO CON FLEXBOX
+    =====================================================
+*/
+
+/*
+    hero-section:
+    - Fondo blanco y sombra para darle efecto de "tarjeta".
+    - display: flex; coloca a .hero-text y .hero-image-container en fila (columnas).
+    - gap: espacio entre las dos columnas.
+    - align-items: center; alinea verticalmente al centro.
+*/
+.hero-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/*
+    hero-text:
+    - flex: 1; hace que esta columna ocupe todo el espacio disponible posible,
+      compartiendo con la otra columna (que también tiene flex: 1;).
+*/
+.hero-text {
+    flex: 1;
+}
+
+/*
+    hero-image-container:
+    - flex: 1; ocupa la otra mitad del ancho.
+    - display: flex; y justify-content: center; para centrar la imagen horizontalmente.
+*/
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/*
+    hero-image:
+    - max-width: 100%; hace que la imagen no se desborde del contenedor.
+    - height: auto; mantiene la proporción de la imagen.
+    - border-radius y box-shadow para estética.
+*/
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/*
+    hero-note:
+    - Texto un poco más pequeño y gris para que se note como nota secundaria.
+*/
+.hero-note {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* 
+    =====================================================
+    SECCIÓN 2: BLOQUES DE 3 (GRID)
+    =====================================================
+*/
+
+/*
+    three-blocks-section:
+    - Otra "tarjeta" con fondo blanco y sombra.
+*/
+.three-blocks-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/*
+    three-blocks-grid:
+    - display: grid; activa el modo cuadrícula.
+    - grid-template-columns: repeat(3, 1fr);
+      Esto significa: 3 columnas, cada una con 1 fracción del espacio disponible.
+    - gap: espacio entre los bloques.
+    - margin-top: separa la cuadrícula del texto superior.
+*/
+.three-blocks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/*
+    info-block:
+    - Se usa tanto en la sección de 3 como de 6 bloques.
+    - Fondo suave, borde y padding para que parezca una tarjeta pequeña.
+*/
+.info-block {
+    background-color: #f0f4ff;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #d0ddff;
+}
+
+/* 
+    =====================================================
+    SECCIÓN 3: BLOQUES DE 6 (GRID)
+    =====================================================
+*/
+
+/*
+    six-blocks-section:
+    - Misma idea de tarjeta que en otras secciones.
+*/
+.six-blocks-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/*
+    six-blocks-grid:
+    - display: grid; nuevamente cuadrícula.
+    - grid-template-columns: repeat(3, 1fr);
+      En pantallas grandes tendremos 3 columnas por fila.
+      Como hay 6 elementos, se verán 2 filas.
+*/
+.six-blocks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* 
+    =====================================================
+    SECCIÓN 4: ANIMACIÓN
+    =====================================================
+*/
+
+/*
+    animation-section:
+    - Otra tarjeta con fondo blanco.
+*/
+.animation-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/*
+    animated-block:
+    - Tamaño definido (width, height).
+    - display: flex; align-items y justify-content para centrar el texto
+      dentro del bloque.
+    - background-color, color y border-radius para el estilo.
+    - margin: separa el bloque de otros elementos.
+    - animation: aquí aplicamos la animación definida con @keyframes.
+
+    Detalle de animation:
+    animation: nombre duracion timing-function iteraciones dirección;
+
+    - moverBloque: nombre de la animación (definida con @keyframes).
+    - 2s: dura 2 segundos cada ciclo.
+    - ease-in-out: inicia y termina suave.
+    - infinite: se repite para siempre.
+    - alternate: va hacia adelante y luego hacia atrás.
+*/
+.animated-block {
+    width: 150px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffb347;
+    color: #222;
+    font-weight: bold;
+    border-radius: 8px;
+    margin: 20px 0;
+    animation: moverBloque 2s ease-in-out infinite alternate;
+}
+
+/*
+    @keyframes moverBloque:
+    Aquí definimos la animación paso a paso.
+
+    - 0%: estado inicial, sin desplazamiento (translateX(0)).
+    - 100%: estado final, se desplaza 150px a la derecha (translateX(150px)).
+
+    Gracias a "alternate", cuando termina en 100%, la animación se reproduce
+    al revés (100% → 0%), haciendo que el bloque vaya y vuelva.
+*/
+@keyframes moverBloque {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(150px);
+    }
+}
+
+/*
+    Texto nota de animación
+*/
+.animation-note {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* 
+    =====================================================
+    SECCIÓN 5: DEPLOY
+    =====================================================
+*/
+
+/*
+    deploy-section:
+    - Igual estilo de tarjeta para mantener consistencia.
+*/
+.deploy-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/*
+    Estilos para la lista ordenada en la sección de deploy.
+*/
+.deploy-section ol {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.deploy-section li {
+    margin-bottom: 5px;
+}
+
+/* 
+    =====================================================
+    RESPONSIVE DESIGN (para móviles y tablets)
+    =====================================================
+
+    Usamos media queries para cambiar el diseño según el ancho de la pantalla.
+*/
+
+/*
+    Primer breakpoint: max-width: 768px
+    Aplica en tablets y móviles.
+
+    - hero-section: cambiamos flex-direction a column para que
+      la imagen se coloque abajo del texto (ya no en columnas).
+    - three-blocks-grid y six-blocks-grid:
+      pasamos de 3 columnas a 2 columnas.
+*/
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+    }
+
+    .three-blocks-grid,
+    .six-blocks-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/*
+    Segundo breakpoint: max-width: 480px
+    Aplica en móviles muy pequeños.
+
+    - three-blocks-grid y six-blocks-grid:
+      ahora solo 1 columna, los bloques se apilan verticalmente.
+*/
+@media (max-width: 480px) {
+
+    .three-blocks-grid,
+    .six-blocks-grid {
+        grid-template-columns: 1fr;
+    }
+}
